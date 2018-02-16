@@ -53,6 +53,6 @@
           (if (:answered @data)
             [:div
              (if (:correct @data)
-               (str "Correct! " (if (:note question) (str "Note: " (:note question))))
+               (str "Correct! " (if (not-empty (:note question)) (str "Note: " (:note question))))
                (format-correct (:answer question)))
              [:div [:button#next {:on-click (partial next-question data)} "Next Question"]]])])))))
